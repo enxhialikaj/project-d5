@@ -5,7 +5,7 @@ from flask import render_template, request, redirect, url_for, flash, Markup, ge
 from flask_login import current_user, login_user, login_required, logout_user
 from photo_app import app
 
-from photo_app.models import User, Photo, Post, FavoritePosts, db_session, SavedPath, db, load_user
+from photo_app.models import User, Photo, Post, FavoritePosts, db_session, db, load_user
 from manage import factory_setup, factory_teardown
 from pony.orm import select
 from dateutil.relativedelta import relativedelta
