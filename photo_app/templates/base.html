@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        {% if title %}
+           <title>{{ title }}</title>
+        {% else %}
+           <title>FIRE</title>
+        {% endif %}
+      </head>
+  
+      <body>
+           <div class="navbar-fixed">
+          <nav>
+          <div class="nav-wrapper">
+              <ul id="nav-mobileleft" class="left">
+                  <li><a href="{{ url_for('index') }}" class="btn">Home</a></li>
+                  <ul id="nav-mobile" class="right">
+
+                    {% if current_user.is_anonymous %}
+                    <li><a href="{{ url_for('login') }}" class="btn">Login</a></li>
+                    <li><a href="{{ url_for('signup') }}" class="btn">Sign Up</a></li>
+                    {% else %}
+                    <li style="font-size: 25px;">User: {{current_user.username}} </li>
+                    <li><a href="{{ url_for('logout') }}" class="btn">Logout</a></li>
+                    {% endif %}
+                </div>
+            </nav>
+            </div>
+          <div class="container" style="width:65%;">
+              <div class="center-align">
+                  {% block content %}
+                  {% endblock %}
+  
+        <!--JavaScript at end of body for optimized loading-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      </body>
+    </html>
+    

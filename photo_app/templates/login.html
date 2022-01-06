@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="card-panel teal lighten-2">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+
+  <h4>Already one of us?</h4>
+  <h6>If you have an account, please login here.</h6>>
+  <form method="POST" class="col s12">
+
+    <div class="input-field">
+      <label>Username/Email:</label>
+      <input type="text" class="validate" name="email" required="" aria-required="true" unique="True"> 
+
+    </div>
+
+    <div class="input-field">
+      <label>Password:</label>
+      <input type="password" class="validate" name="password" required="" aria-required="true">
+    </div>
+
+    <button class="btn waves-effect waves-light" type="submit" name="action">Sign In
+    </button>
+</form>
+<p>New user? <a href="{{ url_for('signup') }}">Create an account!</a></p>
+
+</div>
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('login_menu').style.background = '#c6d128';
+  });
+</script>
+
+{% endblock scripts %}
+
+ {% endblock %}
