@@ -1,4 +1,4 @@
-This code shows the basic implemenation of photo sharing app.
+This code shows the basic implementation of photo sharing app.
 
 It is built using the below technologies:
 
