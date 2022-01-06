@@ -126,7 +126,7 @@ def home():
         # filter images; let us assume the available categories are nature and buildings
         if 'nature' in request.form:
             images = select(image for image in Image if image.category == 'nature')
-        elif 'buildings':
+        elif 'buildings' in request.form: 
             images = select(image for image in Image if image.category == 'buildings')
         return render_template('home.html', images=images)
 
